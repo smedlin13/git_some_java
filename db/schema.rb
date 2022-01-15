@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_15_175416) do
+ActiveRecord::Schema.define(version: 2022_01_15_183214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2022_01_15_175416) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "desc"
+    t.string "purchases"
+    t.integer "points"
+    t.string "prizes"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,4 +74,5 @@ ActiveRecord::Schema.define(version: 2022_01_15_175416) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "rewards", "users"
 end

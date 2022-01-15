@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc: MyString
+  purchases: MyString
+  points: 1
+  prizes: MyString
+  user: one
+
+two:
+  desc: MyString
+  purchases: MyString
+  points: 1
+  prizes: MyString
+  user: two

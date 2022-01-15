@@ -6,7 +6,8 @@ import Nomatch from './components/shared/Nomatch';
 import Navbar from './components/shared/Navbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import CoffeeShops from './components';
+import Menus from './components/menus/Menus';
+import MenuShow from './components/menus/MenuShow';
 
 const App = () => (
   <>
@@ -20,6 +21,8 @@ const App = () => (
           </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/menus' element={<Menus />} />
+          <Route path='/menus/:menuId' element={<MenuShow />} />
           <Route path='/*' element={<Nomatch />} />
         </Routes>
       </>
