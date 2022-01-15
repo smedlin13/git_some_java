@@ -34,7 +34,7 @@ class Api::MenusController < ApplicationController
   private 
 
     def menu_params
-      params.require(:menu).permit(:name, :version, :bought)
+      params.require(:menu).permit(:drinks, :food, :image, :price)
     end
 
     def set_menu
