@@ -25,14 +25,14 @@ const RewardShow = ({ updateReward }) => {
         Edit
       </Button>
 
-      <Modal show={editing} onHid={() => setEdit(false)}>
+      <Modal show={editing} onHide={() => setEdit(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Editing</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <RewardForm
           {...reward}
-          id={params.RewardId}
+          id={params.rewardId}
           updateReward={updateReward}
           setEdit={setEdit}
           />

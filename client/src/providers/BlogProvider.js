@@ -11,13 +11,13 @@ const BlogProvider = ({ children }) => {
   const navigate = useNavigate()
 
   const getAllBlogs = () => {
-    axios.get(`/api/blogs`)
+    axios.get('/api/blogs')
       .then( res => setBlogs(res.data))
       .catch( err => console.log(err))
   }
 
   const addBlog = (blog) => {
-    axios.post(`/api/blogs`, { blog } )
+    axios.post('/api/blogs', { blog } )
       .then( res => setBlogs([...blogs, res.data]))
       .catch( err => console.log(err))
   }

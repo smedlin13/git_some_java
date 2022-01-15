@@ -7,7 +7,7 @@ const MenuList = ({ menus }) => {
     <ListGroup>
         { menus.map( m =>
             <Link to={`/menus/${m.id}`}>
-                <ListGroup.Item>{m.name}</ListGroup.Item>
+                <ListGroup.Item>{m.drinks}</ListGroup.Item>
             </Link>)}
     </ListGroup>
     </>

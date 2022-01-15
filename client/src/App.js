@@ -10,6 +10,8 @@ import Menus from './components/menus/Menus';
 import MenuShow from './components/menus/MenuShow';
 import Rewards from './components/rewards/Rewards';
 import RewardShow from './components/rewards/RewardShow';
+import Blogs from './components/blogs/Blogs';
+import BlogShow from './components/blogs/BlogShow';
 
 const App = () => (
   <>
@@ -18,10 +20,11 @@ const App = () => (
       <>
         <Routes>
           <Route path='/' element={<Home />} />  
-         
           <Route path='/' element={<ProtectedRoute />}>
           <Route path='/rewards' element={<Rewards />} />
           <Route path='/rewards/:rewardId' element={<RewardShow />} />
+          <Route path='/blogs' element={<Blogs />} />
+          <Route path='/blogs/:blogId' element={<BlogShow />} />
           </Route>
 
           <Route path='/menus' element={<Menus />} />

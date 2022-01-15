@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const RewardForm = ({ addReward, updateReward, setEdit, menuId, setAdd, id, desc, points }) => {
+const RewardForm = ({ addReward, updateReward, setEdit, setAdd, id, desc, points }) => {
   const [reward, setReward] = useState({desc: '', points: 0})
 
   useEffect( () => {
@@ -17,7 +17,7 @@ const handleSubmit = (e) => {
     updateReward(id, reward)
     setEdit(false)
   } else {
-    addReward(reward)
+    addReward(id, reward)
     setAdd(false)
   }
   setReward({ desc: '', points: 0})

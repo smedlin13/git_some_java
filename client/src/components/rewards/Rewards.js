@@ -11,7 +11,7 @@ const Rewards = ({ getAllRewards, rewards, addReward }) => {
   const params = useParams()
 
   useEffect( () => {
-    getAllRewards(params.rewardsId);
+    getAllRewards();
   }, [])
 
   return (

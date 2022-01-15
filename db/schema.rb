@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(version: 2022_01_15_214932) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "coffee_shops", force: :cascade do |t|
-    t.string "drinks"
-    t.string "food"
-    t.float "price"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "drinks"
     t.string "food"

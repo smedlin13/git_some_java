@@ -11,22 +11,22 @@ const RewardProvider = ({ children }) => {
   const navigate = useNavigate()
 
   const getAllRewards = () => {
-    axios.get(`/api/rewards`)
+    axios.get('/api/rewards')
       .then( res => setRewards(res.data))
       .catch( err => console.log(err))
   }
 
   const addReward = (reward) => {
-    axios.post(`/api/rewards`, { reward } )
+    axios.post('/api/rewards', { reward } )
       .then( res => setRewards([...rewards, res.data]))
       .catch( err => console.log(err))
   }
 
-  const updateReward = (rewardId, reward, id) => {
+  const updateReward = (rewardId, reward) => {
     axios.put(`/api/rewards/${rewardId}`, { reward })
       .then( res => {
         const newUpdatedRewards = rewards.map( r => {
-          if (r.id === id) {
+          if (r.id === rewardId) {
             return res.data
           }
           return r

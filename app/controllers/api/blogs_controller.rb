@@ -2,7 +2,7 @@ class Api::BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :update, :destroy]
 
   def index
-    render json: Blogs.all
+    render json: Blog.all
   end
 
   def show
@@ -10,7 +10,7 @@ class Api::BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blogs.new(blog_params)
+    @blog = Blog.new(blog_params)
     if @blog.save
       render json: @blog
     else
@@ -38,6 +38,6 @@ class Api::BlogsController < ApplicationController
     end
 
     def set_blog
-      @blog = Blogs.find(params[:id])
+      @blog = Blog.find(params[:id])
     end
 end

@@ -17,7 +17,7 @@ const MenuProvider = ({ children }) => {
   }
 
   const addMenu = (menu) => {
-    axios.post('/api/menu', { menu })
+    axios.post('/api/menus', { menu })
       .then( res => setMenus([...menus, res.data]))
       .catch( err => console.log(err) )
   }

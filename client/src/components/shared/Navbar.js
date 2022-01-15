@@ -11,12 +11,8 @@ const Navbar = ({ user, handleLogout }) => {
           <li onClick={ () => handleLogout() }>
             Logout
           </li>
-          <Link to='/register'>
-            <li>
-              Register
-            </li>
-          </Link>
-          <Link to='/menu'>
+         
+          <Link to='/menus'>
             <li>
               Menu
             </li>
@@ -24,6 +20,11 @@ const Navbar = ({ user, handleLogout }) => {
           <Link to='/rewards'>
             <li>
               Rewards
+            </li>
+          </Link>
+          <Link to='/blogs'>
+            <li>
+              Blogs
             </li>
           </Link>
         </>
@@ -35,6 +36,11 @@ const Navbar = ({ user, handleLogout }) => {
           <Link to='/login'>
             <li>
               Login
+            </li>
+          </Link>
+          <Link to='/register'>
+            <li>
+              Register
             </li>
           </Link>
         </>
@@ -66,8 +72,6 @@ const ConnectedNavbar = (props) => (
 )
 
 export default ConnectedNavbar;
-
-
 
 
 

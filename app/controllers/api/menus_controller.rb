@@ -2,7 +2,7 @@ class Api::MenusController < ApplicationController
   before_action :set_menu, only: [:show, :update, :destroy]
 
   def index
-    render json: Menus.all
+    render json: Menu.all
   end
 
   def show
@@ -10,7 +10,7 @@ class Api::MenusController < ApplicationController
   end
 
   def create
-    @menu = Menus.new(menu_params)
+    @menu = Menu.new(menu_params)
     if @menu.save
       render json: @menu
     else
@@ -38,6 +38,6 @@ class Api::MenusController < ApplicationController
     end
 
     def set_menu
-      @menu = Menus.find(params[:id])
+      @menu = Menu.find(params[:id])
     end
 end
