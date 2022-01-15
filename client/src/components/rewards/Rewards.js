@@ -16,7 +16,7 @@ const Rewards = ({ getAllRewards, rewards, addReward }) => {
 
   return (
     <>
-      <h1>Rewards</h1>
+      <h1 style={{ background: '#537FA6', color: 'white', fontSize: '50px'}}>Rewards</h1>
       <Button variant="primary" onClick={() => setAdd(true)}>
         +
       </Button>
@@ -49,3 +49,12 @@ const ConnectedRewards = (props) => (
 )
 
 export default ConnectedRewards;
+
+
+
+
+
+
+
+
+

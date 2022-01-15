@@ -1,48 +1,51 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-const Navbar = ({ user, handleLogout }) => {
+const MainNavbar = ({ user, handleLogout }) => {
 
   const rightNavItems = () => {
+
+
     // links will display when the use is logged in
     if (user) {
       return (
         <>
-          <li onClick={ () => handleLogout() }>
-            Logout
-          </li>
-         
+          <Nav.Link>
           <Link to='/menus'>
-            <li>
               Menu
-            </li>
           </Link>
+          </Nav.Link>
+          <Nav.Link>
           <Link to='/rewards'>
-            <li>
               Rewards
-            </li>
           </Link>
+          </Nav.Link>
+          <Nav.Link>
           <Link to='/blogs'>
-            <li>
               Blogs
-            </li>
           </Link>
+          </Nav.Link>
+          <Nav.Link onClick={ () => handleLogout() }>
+            Logout
+          </Nav.Link>
+         
         </>
       )
     } else {
       // links that will display when not login
       return (
         <>
+          <Nav.Link>
           <Link to='/login'>
-            <li>
               Login
-            </li>
           </Link>
+          </Nav.Link>
+          <Nav.Link>
           <Link to='/register'>
-            <li>
-              Register
-            </li>
+              Register      
           </Link>
+          </Nav.Link>
         </>
       )
     }
@@ -50,24 +53,28 @@ const Navbar = ({ user, handleLogout }) => {
 
   return (
     <>
-      <nav>
-        <ul>
+   
           {/* these links here show up with or without the use being login */}
-          <Link to="/">
-            <li>
-              Home
-            </li>
-          </Link>
+          <Navbar bg="dark" variant="dark">
+          <Container>
+          <Navbar.Brand>
+            <Link to="/">
+            Git Some Java!
+            </Link>
+            </Navbar.Brand>
+            <Nav className="me-auto">
           { rightNavItems() }
-        </ul>
-      </nav>
+            </Nav>
+          </Container>
+          </Navbar>
+
     </>
   )
 }
 
 const ConnectedNavbar = (props) => (
   <AuthConsumer>
-    { value => <Navbar {...props} {...value} />}
+    { value => <MainNavbar {...props} {...value} />}
   </AuthConsumer>
 )
 
