@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2022_01_15_183214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "coffee_shops", force: :cascade do |t|
-    t.string "drinks"
-    t.string "food"
-    t.float "price"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "drinks"
     t.string "food"
