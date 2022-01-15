@@ -11,7 +11,7 @@ const Rewards = ({ getAllRewards, rewards, addReward }) => {
   const params = useParams()
 
   useEffect( () => {
-    getAllRewards(params.menuId)
+    getAllRewards(params.rewardsId);
   }, [])
 
   return (
@@ -23,12 +23,11 @@ const Rewards = ({ getAllRewards, rewards, addReward }) => {
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Points</Modal.Title>
+          <Modal.Title>Add Reward</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <RewardForm
             addReward={addReward}
-            menuId={params.menuId}
             setAdd={setAdd}
           />
         </Modal.Body>
@@ -38,7 +37,7 @@ const Rewards = ({ getAllRewards, rewards, addReward }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <RewardList rewards={rewards} platformId={params.platformId} />
+      <RewardList rewards={rewards} />
     </>
   )
 }

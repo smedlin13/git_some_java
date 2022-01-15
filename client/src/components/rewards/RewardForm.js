@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const RewardForm = ({ addReward, updateReward, setEdit, menuId, setAdd, id, desc, prizes, purchases, points }) => {
-  const [reward, setReward] = useState({desc: '', prizes: '', points: 0, purchases: ''})
+const RewardForm = ({ addReward, updateReward, setEdit, menuId, setAdd, id, desc, points }) => {
+  const [reward, setReward] = useState({desc: '', points: 0})
 
   useEffect( () => {
     if (id) {
-      setReward({ desc, purchases, prizes, points })
+      setReward({ desc, points })
     }
   }, [])
 
@@ -14,13 +14,13 @@ const RewardForm = ({ addReward, updateReward, setEdit, menuId, setAdd, id, desc
 const handleSubmit = (e) => {
   e.preventDefault()
   if (id) {
-    updateReward(menuId, id, reward)
+    updateReward(id, reward)
     setEdit(false)
   } else {
-    addReward(menuId, reward)
+    addReward(reward)
     setAdd(false)
   }
-  setReward({ desc: '', purchases: '', prizes: '', points: '0'})
+  setReward({ desc: '', points: 0})
 }
 
 return (
@@ -33,26 +33,6 @@ return (
             name='desc'
             value={reward.desc}
             onChange={(e) => setReward({ ...reward, desc: e.target.value })}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Purchases</Form.Label>
-          <Form.Select 
-            aria-label="purchases" 
-            name='purchases'
-            value={reward.purchases}
-            onChange={(e) => setReward({ ...reward, purchases: e.target.value })}
-          >
-          </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Prizes</Form.Label>
-          <Form.Control 
-            type="text" 
-            name='prizes'
-            value={reward.prizes}
-            onChange={(e) => setReward({ ...reward, prizes: e.target.value })}
             required
           />
         </Form.Group>

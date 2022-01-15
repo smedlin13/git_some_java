@@ -7,7 +7,7 @@ import RewardForm from './RewardForm';
 
 const RewardShow = ({ updateReward }) => {
   const params = useParams()
-  const [reward, setReward] = useState({ desc: '', purchases: '', points: 0, prizes: ''})
+  const [reward, setReward] = useState({ desc: '', points: 0})
   const [editing, setEdit] = useState(false)
 
   useEffect(() => {
@@ -16,13 +16,11 @@ const RewardShow = ({ updateReward }) => {
       .catch( err => console.log(err))
   }, [])
 
-  const { desc, purchases, points, prizes } = reward
+  const { desc, points } = reward
   return (
     <>
       <h1>Reward: {desc}</h1>
-      <h3>Purchases: {purchases}</h3>
       <h3>Points: {points}</h3>
-      <h3>Prizes: {prizes}</h3>
       <Button variant="warning" onClick={() => setEdit(true)}>
         Edit
       </Button>

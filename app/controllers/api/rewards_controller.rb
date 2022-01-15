@@ -1,9 +1,8 @@
 class Api::RewardsController < ApplicationController
-  before_action :set_menu
   before_action :set_reward, only: [:show, :update, :destroy]
 
   def index 
-    render json: @menu.rewards
+    render json: current_user.rewards
   end
 
   def show
@@ -11,7 +10,7 @@ class Api::RewardsController < ApplicationController
   end
 
   def create 
-    @reward = @menu.rewards.new(reward_params)
+    @reward = current_user.rewards.new(reward_params)
     if @reward.save
       render json: @reward
     else
@@ -34,14 +33,10 @@ class Api::RewardsController < ApplicationController
 
   private
     def reward_params
-      params.require(:reward).permit(:desc, :prizes, :purchases, :points)
-    end
-
-    def set_menu
-      @menu = menu.find(params[:menu_id])
+      params.require(:reward).permit(:desc, :points)
     end
 
     def set_reward
-      @reward = @menu.rewards.find(params[:id])
+      @reward = current_user.rewards.find(params[:id])
     end
 end

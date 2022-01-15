@@ -18,14 +18,14 @@ const App = () => (
       <>
         <Routes>
           <Route path='/' element={<Home />} />  
-          <Route path='/menus' element={<Menus />} />
-          <Route path='/menus/:menuId' element={<MenuShow />} />
-          
+         
           <Route path='/' element={<ProtectedRoute />}>
-          <Route path='/rewards' elements={<Rewards />} />
-          <Route path='/:menuId/rewards/:rewardId' element={<RewardShow />} />
+          <Route path='/rewards' element={<Rewards />} />
+          <Route path='/rewards/:rewardId' element={<RewardShow />} />
           </Route>
 
+          <Route path='/menus' element={<Menus />} />
+          <Route path='/menus/:menuId' element={<MenuShow />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/*' element={<Nomatch />} />

@@ -10,13 +10,13 @@ const RewardProvider = ({ children }) => {
 
   const navigate = useNavigate()
 
-  const getAllRewards = (rewardId) => {
-    axios.get(`/api/rewards/${rewardId}`)
+  const getAllRewards = () => {
+    axios.get(`/api/rewards`)
       .then( res => setRewards(res.data))
       .catch( err => console.log(err))
   }
 
-  const addReward = (rewardId, reward) => {
+  const addReward = (reward) => {
     axios.post(`/api/rewards`, { reward } )
       .then( res => setRewards([...rewards, res.data]))
       .catch( err => console.log(err))

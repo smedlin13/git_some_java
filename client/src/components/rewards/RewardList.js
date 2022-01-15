@@ -8,12 +8,10 @@ const RewardList = ({ rewards, userId, deleteReward, updateReward }) => {
     <>
           { rewards.map( r => 
            <>
-            <RewardShow
-            {...r}
-            userId={userId}
-            deleteReward={deleteReward}
-            updateReward={updateReward}
-            />
+            <Link to={`/rewards/${r.id}`}>
+            <h1>{r.desc}</h1>
+            <h2>Points: {r.points}</h2>
+            </Link>
            </>
           )}
     </>

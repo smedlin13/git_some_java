@@ -7,7 +7,7 @@ const MenuForm = ({ addMenu, id, food, drinks, image, price, updateMenu }) => {
 
 useEffect( () => {
   if (id) {
-    setMenu({ food, drinks, price, image })
+    setMenu({ food, drinks, image, price })
   }
 }, [])
 
@@ -18,7 +18,7 @@ const handleSubmit = (e) => {
   } else {
     addMenu(menu)
   }
-  setMenu(({ food: '', drinks: '', price: 0.0, image: ''}))
+  setMenu(({ food: '', drinks: '', image: '', price: 0.0}))
 }
 
 return (
