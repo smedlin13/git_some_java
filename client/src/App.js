@@ -6,6 +6,7 @@ import Nomatch from './components/shared/Nomatch';
 import Navbar from './components/shared/Navbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import CoffeeShops from './components';
 
 const App = () => (
   <>
